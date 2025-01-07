@@ -11,7 +11,7 @@ export default function useWheater() {
     const API_KEY = import.meta.env.VITE_API_KEY
     
     try {
-      const geoApi = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=yes&q=${country}`;
+      const geoApi = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=yes&q=${country}`;
       const data = await axios(geoApi)
       const response = await data.data
       setWeather(response)
