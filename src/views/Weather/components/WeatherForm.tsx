@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { countries } from "../../../constants/countries";
 import { SearchWeather } from "../../../types/weather";
 import Alert from "./Alert";
@@ -16,8 +16,8 @@ export default function Form({ fetchWeather }: FormProps) {
 
   const handleChange = (
     e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLSelectElement>
+      | ChangeEvent<HTMLInputElement>
+      | ChangeEvent<HTMLSelectElement>
   ) => {
     setSearch({
       ...search,
@@ -25,7 +25,7 @@ export default function Form({ fetchWeather }: FormProps) {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (Object.values(search).includes("")) {
       setIsError(true);
